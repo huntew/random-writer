@@ -1,41 +1,42 @@
 ######################################
 # Random Writer programming assignment
-# Hunter Montalvo & _______
+# Hunter Montalvo & Julius Smith
 # 2023-09-08
 ######################################
 
 # import libraries
-from random import randint, choice
+from random import randint, choice 
+
 
 ###########
 # FUNCTIONS
 ###########
 # returns a random seed of length level (or k) from the book
 def get_seed():
-    # pick a random index that represents the beginning of the seed in the book
-    k = int(input("k level: "))
-    while k < 0: # if input is negative
-        k = int(input("k level: ")) # keep asking until it's positive
-    # return the random seed of length level (or k)
-    return k
+    global i
+    i = randint(0, len(book) - level) # pick a random index that represents the beginning of the seed in the book
+    seed = book[i:i+level] # choose a random seed to start with, from start to end - k length (bc if its past k length then theres nothing after)
+    return seed # return the random seed of length level (or k)
+    
     
 # returns a random next character given a seed from the book
-def get_next_char():
-    def __init__(self, i):
-        self._c = []  # initialize the list of characters
-        self._i = i   # initialize the current index (where we begin to look in the book)
-
-   
+def get_next_char(seed):
+    global i #i = randint(0, len(book) - level)   # initialize the current index (where we begin to look in the book)
     # continually find the seed in the book
+    rand_list = []
+    next_char = []
+    for seed in book:
+        c = i + 1
+        rand_list.append(book[c])
         # find the index of the seed in the book beginning at the current index
 
         # abort if the seed is not found (or it's at the end of the book)
 
         # otherwise, add the next character to the list
-
-        # and update the index in the book
-
-    # if there is at least one next character in the list of characters, return a randomly chosen one
+        
+    i += 1 # and update the index in the book
+        
+    next_char.append(choice(rand_list)) # if there is at least one next character in the list of characters, return a randomly chosen one
 
     # otherwise, return some appropriate trigger (e.g., None)
 
@@ -46,7 +47,8 @@ def get_next_char():
 #  k (or level) -> the level of analysis performed on the book
 #  length -> the length of output to generate
 #  filename -> the filename that contains the text of the book
-level = 1
+
+level = 2
 length = 150
 filename = "hg-wells_the-time-machine.txt"
 
@@ -57,9 +59,11 @@ with open(filename, "r") as f:
 # initialize the output
 
 # pick a random seed of length level (or k)
-get_seed()
+seed = get_seed()
 # repeat as long as there isn't enough output yet
-    # get a random next character
+out = []
+while (len(out) < length):
+    get_next_char(seed) # get a random next character
 
     # if one exists
         # add it to the output
@@ -68,6 +72,7 @@ get_seed()
 
     # otherwise, pick another random seed
 
-# display the output
+#print(s[i:i+level]) # display the output
+
 
 
