@@ -1,6 +1,6 @@
 ######################################
 # Random Writer programming assignment
-# Hunter Montalvo & Julius Smith
+# Hunter montalvo & Julius Smith
 # 2023-09-10
 ######################################
 
@@ -15,7 +15,7 @@ from random import randint, choice
 def get_seed():
     rand_i = randint(0, len(book) - level) # pick a random index that represents the beginning of the seed in the book
     seed = book[rand_i:rand_i+level] # choose a random seed to start with, from start to end - k length (bc if its past k length then theres nothing after)
-    return seed, rand_i # return the random seed of length level (or k)
+    return seed # return the random seed of length level (or k)
     
     
 # returns a random next character given a seed from the book
@@ -64,7 +64,7 @@ with open(filename, "r") as f:
 
 generated = '' # initialize the output
 
-seed, rand_i = get_seed() # pick a random seed of length level (or k)
+seed = get_seed() # pick a random seed of length level (or k)
 original_seed = seed # store original seed
 times_generated = 0
 while (len(generated) < length): # repeat as long as there isn't enough output yet
@@ -78,7 +78,11 @@ while (len(generated) < length): # repeat as long as there isn't enough output y
         seed = new_seed[1:] # and recalculate the seed (the seed is shifted over the the right one, by starting at the index of the num of times a generation has happened
         
     else:
-        seed, rand_i = get_seed() # otherwise, pick another random seed
+        seed = get_seed() # otherwise, pick another random seed
 print('\n' + '—' * 50 + '\n')
 print(original_seed + generated) # display the output
 ''# ask if we print the original chosen seed or only the generated content
+
+
+
+
