@@ -51,7 +51,7 @@ def get_next_char(seed, level):
 level = 5
 length = 150
 filename = "hg-wells_the-time-machine.txt"
-
+copy = 'n'
 if input("Customize? (y/n): ") == 'y':
     file_list = ["hg-wells_the-time-machine", "arthur-conan-doyle_the-lost-world", "jules-verne_the-mysterious-island", "mark-twain_the-adventures-of-tom-sawyer"]
     level = int(input("Level: "))
@@ -85,6 +85,3 @@ while (len(generated) < length): # repeat as long as there isn't enough output y
 print('\n' + '—' * 50 + '\n')
 print(original_seed + generated) # display the output
 ''# ask if we print the original chosen seed or only the generated content
-
-
-
